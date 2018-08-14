@@ -15,18 +15,9 @@
         <div class="ui middle aligned selection list">
           <div class="item">
             <img class="ui avatar image" src="https://semantic-ui.com/images/avatar/small/daniel.jpg">
-            <div class="content">
-              <div class="header">Helen</div>
-              <div class="description">Mi descripcion</div>
-            </div>
-          </div>
-        </div>
-        <div class="ui middle aligned selection list">
-          <div class="item">
-            <img class="ui avatar image" src="https://semantic-ui.com/images/avatar/small/daniel.jpg">
-            <div class="content">
-              <div class="header">Helen</div>
-              <div class="description">Mi descripcion</div>
+            <div class="content" v-for="item in listTodo" :key="item.id">
+              <div class="header">{{item.name}}</div>
+              <div class="description">{{item.description}}</div>
             </div>
           </div>
         </div>
@@ -34,3 +25,12 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    listTodo: Array
+  }
+}
+</script>
+
