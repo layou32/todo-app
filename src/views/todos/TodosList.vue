@@ -1,7 +1,7 @@
 <template>
   <div class="ui grid container">
     <div class="row">
-      <div class="seven wide column">
+      <div @click="obtenerTodos" style="cursor: pointer;" class="seven wide column">
         <h1>Listado de todos:</h1>
       </div>
       <div class="right floated column">
@@ -12,25 +12,29 @@
     </div>
     <div class="row">
       <div class="column">
-        <div class="ui middle aligned selection list">
-          <div class="item">
-            <img class="ui avatar image" src="https://semantic-ui.com/images/avatar/small/daniel.jpg">
-            <div class="content" v-for="item in listTodo" :key="item.id">
-              <div class="header">{{item.name}}</div>
-              <div class="description">{{item.description}}</div>
-            </div>
-          </div>
-        </div>
+        <list-todos :list-todos="listTodos"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import {mapActions, mapGetters} from 'vuex'
+import * as todo from '@/store/modules/todo/mutations-types'
+import ListTodos from '@/components/list-todo/ListTodos'
 export default {
-  props: {
-    listTodo: Array
+  components: {
+    ListTodos
+  },
+  methods: {
+    ...mapActions({
+      obtenerTodos: todo.GET_TODOS
+    })
+  },
+  computed: {
+    ...mapGetters({
+      listTodos: todo.GET_TODOS
+    })
   }
 }
 </script>
-
