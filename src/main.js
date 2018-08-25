@@ -4,9 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import {store} from './store/index'
+import Axios from 'axios'
 
 Vue.config.productionTip = false
-
+Axios.defaults.baseURL = 'http://127.0.0.1:8000/'
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
