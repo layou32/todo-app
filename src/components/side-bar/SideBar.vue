@@ -1,5 +1,8 @@
 <template>
   <div class="ui sidebar inverted vertical menu" :class="{visible: mostrarSideBar}">
+    <a
+    class="item"
+    @click="toogleMenu">Close</a>
     <router-link
     class="item"
     v-for="(item, key) in menuSideBar"
@@ -23,7 +26,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      cargarMenu: menu.GET_MENU
+      cargarMenu: menu.GET_MENU,
+      toogleMenu: menu.TOOGLE_MENU
     })
   },
   mounted () {

@@ -10,6 +10,9 @@ const actions = {
       }
     ]
     commit(menu.GET_MENU, menuOpt)
+  },
+  [menu.TOOGLE_MENU] ({commit}) {
+    commit(menu.TOOGLE_MENU)
   }
 }
 
